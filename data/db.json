@@ -1,0 +1,53 @@
+{
+  "mahasiswa": [
+    {
+      "id": 1,
+      "nama": "Lenathea",
+      "nim": "22/123456/SV/12312",
+      "kelas": "A",
+      "jeniskelamin": "Perempuan",
+      "icon": "paw",
+      "color": "#F99417",
+      "title": "Minuman",
+      "Author": "Aqua"
+    },
+    {
+      "nama": "Lukas",
+      "nim": "21/482910/SV/20016",
+      "kelas": "B",
+      "jeniskelamin": "Lanang",
+      "icon": "paw",
+      "color": "#192655",
+      "id": 2,
+      "title": "Minuman",
+      "Author": "Aqua"
+    },
+    {
+      "nama": "d",
+      "nim": "fsda",
+      "kelas": "d",
+      "jeniskelamin": "sada",
+      "color": "#99B080",
+      "icon": "dog",
+      "id": 29
+    },
+    {
+      "nama": "Fajar",
+      "nim": "111",
+      "kelas": "C",
+      "jeniskelamin": "Lanang",
+      "color": "FFFFFF",
+      "icon": "yin-yang",
+      "id": 33
+    },
+    {
+      "nama": "Aku",
+      "nim": "123",
+      "kelas": "C",
+      "jeniskelamin": "Cwek",
+      "color": "333",
+      "icon": "wind",
+      "id": 34
+    }
+  ]
+}
