@@ -4,68 +4,45 @@ import React from 'react';
 import Portofolio from '../App';
 import {Text, View, ScrollView, StyleSheet} from 'react-native';
 import Fontawesome5 from 'react-native-vector-icons/FontAwesome5';
-import { WebView } from 'react-native-webview';
-import Getpoint from '../Getpoint';
+import {WebView} from 'react-native-webview';
+import Getpoint from '../screen/Getpoint';
 
 const Tab = createBottomTabNavigator();
 
-const forminput = 'https://lungkad.github.io/Web-App/';
+const webmap = require('../peta/map.html');
 
-const petaweb = 'https://lungkad.github.io/Web-App/map.html';
+const forminput = 'http://10.0.2.2:5500/index.html';
+
+const petaweb = 'http://10.0.2.2:5500/map.html';
+
+const homescreen = require('../login/home.html');
 
 function HomeScreen() {
   return (
-    <View>
-      <Text style={styles.title}>Aplikasi Peta Lokasi Objek</Text>
-      <View style={styles.container}>
-        <Text>Stack: </Text>
-        <Text>1. React Native</Text>
-        <Text>2. HTML</Text>
-        <Text>3. CSS</Text>
-        <Text>4. Javascript</Text>
-        <Text>5. FontAwesome5</Text>
-        <Text>6. App Script</Text>
-        <Text>7. Google Sheets</Text>
-      </View>
-    </View>
+    <WebView
+      source={homescreen}/>
   );
 }
 function MapScreen() {
-  return (
-      <WebView
-        source={{ uri: petaweb}}
-      />
-  );
+  return <Text>Loginpage</Text>;
 }
 function AddScreen() {
-  return (
-      <WebView
-        source={{ uri: forminput}}
-      />
-  );
+  return <Text>Loginpage</Text>;
 }
 function DataScreen() {
-  return (
-      <View>
-        <Getpoint>
-
-        </Getpoint>
-      </View>
-  );
+  return <Text>Loginpage</Text>;
 }
 function ProfileScreen() {
   return (
     <View>
-      <Portofolio>
-        
-      </Portofolio>
-    </View> 
+      <Portofolio></Portofolio>
+    </View>
   );
 }
-function MyTabs() {
+function AppTabs() {
   return (
     <NavigationContainer>
-      <Tab.Navigator screenOptions={{ headerShown: false }}>
+      <Tab.Navigator screenOptions={{headerShown: false}}>
         <Tab.Screen
           name="Home"
           component={HomeScreen}
@@ -121,8 +98,8 @@ function MyTabs() {
   );
 }
 
-export default MyTabs;
-const styles = StyleSheet.create ({
+export default AppTabs;
+const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
@@ -130,9 +107,9 @@ const styles = StyleSheet.create ({
     marginTop: 20,
   },
   image: {
-    width:400,
-    height:600,
-    resizeMode: 'stretch'
+    width: 400,
+    height: 600,
+    resizeMode: 'stretch',
   },
   listitems: {
     padding: 20,
@@ -141,10 +118,10 @@ const styles = StyleSheet.create ({
   caption: {
     fontSize: 14,
     fontWeight: 'bold',
-},
-container:{
-  marginTop: 20,
-  marginHorizontal: 20,
-  padding: 20,
-}
+  },
+  container: {
+    marginTop: 20,
+    marginHorizontal: 20,
+    padding: 20,
+  },
 });

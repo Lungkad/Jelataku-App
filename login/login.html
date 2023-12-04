@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  </head>
+  <body class="h-full">
+    <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+      <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <img
+          class="mx-auto h-20 w-auto"
+          src="./favicon.png"
+        />
+        <h2
+          class="mt-5 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
+        >
+          Sign in to your account
+        </h2>
+      </div>
+
+      <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form class="space-y-6" id="login">
+          <div>
+            <label
+              for="email"
+              class="block text-sm font-medium leading-6 text-gray-900"
+              >Email address</label
+            >
+            <div class="mt-2">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between">
+              <label
+                for="password"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >Password</label
+              >
+              <div class="text-sm">
+                <a
+                  href="#"
+                  class="font-semibold text-indigo-600 hover:text-indigo-500"
+                  >Forgot password?</a
+                >
+              </div>
+            </div>
+            <div class="mt-2">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Sign in
+            </button>
+          </div>
+        </form>
+
+        <p class="mt-10 text-center text-sm text-gray-500">
+          Not a user?
+          <a
+            href="./register.html"
+            class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+            >Register now</a
+          >
+        </p>
+      </div>
+    </div>
+  </body>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+    import {
+      getDatabase,
+      get,
+      ref,
+      child
+    } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+    } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCBmhoI90VWanb53Njc61xNwOpo0aeFvAE",
+      authDomain: "jelataku-d166b.firebaseapp.com",
+      databaseURL:
+        "https://jelataku-d166b-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "jelataku-d166b",
+      storageBucket: "jelataku-d166b.appspot.com",
+      messagingSenderId: "359145156268",
+      appId: "1:359145156268:web:53bf0c2e435fcd01d27909",
+      measurementId: "G-65CNQCH6HV",
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase();
+    const auth = getAuth(app);
+    const dbref = ref(db);
+
+    let email = document.getElementById("email");
+    let password = document.getElementById("password");
+    let login = document.getElementById("login");
+
+    let SignInUser = (evt) => {
+      evt.preventDefault();
+
+      signInWithEmailAndPassword(auth, email.value, password.value)
+        .then((credential) => {
+          get(child(dbref, 'UserAuthList/' + credential.user.uid)).then((snapshot) => {
+            if (snapshot.exists()) {
+              sessionStorage.setItem("user-info", JSON.stringify({
+                firstname : snapshot.val().firstname,
+                lastname : snapshot.val().lastname,
+              }));
+              sessionStorage.setItem("user-creds", JSON.stringify(credential.user))
+            }
+          });
+          window.location.href = "../screen/Homepage.html";
+        })
+        .catch((error) => {
+          alert(error.message);
+          console.log(error.code);
+          console.log(error.message);
+        });
+    };
+
+    login.addEventListener("submit", SignInUser);
+  </script>
+</html>

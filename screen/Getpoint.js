@@ -14,7 +14,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 
 const Getpoint = () => {
   const jsonUrl =
-    'https://script.google.com/macros/s/AKfycbwHpcwd-JfjvjiFbwuHaPI3dmyaUddBQD5_5BsLA3M_qghsGJQe_noxReRkDhA6GRna5A/exec';
+    'https://script.google.com/macros/s/AKfycbzccYbGkOSfdI-51878MA_jYPYhB3DJm080j1nbjjJyogRnRf00Ml9giQ7atIrXjYmh/exec';
   const [isLoading, setLoading] = useState(true);
   const [dataUser, setDataUser] = useState({});
   const [refresh, setRefresh] = useState(false);

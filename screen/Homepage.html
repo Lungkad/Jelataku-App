@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <title>Homepage</title>
+  </head>
+
+  <body class="">
+    <div class="min-h-screen bg-gray-100">
+      <div
+        class="fixed z-10 flex flex-col h-full w-64 bg-gray-800 text-gray-300 shadow-lg"
+        style="display: none"
+        id="mySidebar">
+        <nav class="flex-col px-4 mt-5">
+          <a
+            onclick="closeTab()"
+            class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
+            <i class="fa-solid fa-xmark mr-3 text-gray-400"></i>
+          </a>
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
+            <i class="fa-solid fa-home mr-3 text-gray-400"></i>
+            Home
+          </a>
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
+            <i class="fa-solid fa-map-location-dot mr-3 text-gray-400"></i>
+            Map
+          </a>
+          <a
+            href="Inputpage.html"
+            class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
+            <i class="fa-solid fa-plus mr-3 text-gray-400"></i>
+            Input Data
+          </a>
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
+            <i class="fa-solid fa-map-pin mr-3 text-gray-400"></i>
+            List Data
+          </a>
+          <div class="absolute bottom-0 mb-1 w-full">
+            <button
+              onclick="confirmSignOut()"
+              type="button"
+              class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
+              <i class="fa-solid fa-right-from-bracket mr-3 text-gray-400"></i>
+              Sign Out
+            </button>
+          </div>
+        </nav>
+      </div>
+
+      <main class="flex flex-col mx-auto">
+        <div class="mb-4 flex-grow bg-gray-800 py-5">
+          <a onclick="openTab()" class="text-2xl text-gray-100 mb-4 ml-4">
+            ☰
+          </a>
+          <a class="text-xl text-gray-100 mb-4 ml-4">Homepage</a>
+        </div>
+
+        <h1 class="text-3xl font-bold text-gray-800 mb-4 px-5 py-2">
+          Welcome to my homepage!
+        </h1>
+        <p class="text-lg text-gray-600 leading-relaxed px-5 py-2">
+          This is a homepage with a permanently open sidebar using Tailwind CSS.
+          You can customize it to fit your needs and add your own content.
+        </p>
+        <h2 id="msg"></h2>
+        <h2 id="greet"></h2>
+      </main>
+    </div>
+    <script>
+      let UserCreds = JSON.parse(sessionStorage.getItem('user-creds'));
+      let UserInfo = JSON.parse(sessionStorage.getItem('user-info'));
+
+      let MsgHead = document.getElementById('msg');
+      let GreetHead = document.getElementById('greet');
+
+      function openTab() {
+        document.getElementById('mySidebar').style.display = 'block';
+      }
+
+      function closeTab() {
+        document.getElementById('mySidebar').style.display = 'none';
+      }
+      function confirmSignOut() {
+        if (confirm('Are you sure you want to sign out?')) {
+          sessionStorage.removeItem('user-creds');
+          sessionStorage.removeItem('user-info');
+          document.getElementById('mySidebar').style.display = 'none';
+          // Add your logout logic here (e.g., redirect to login page)
+          window.location.href = '../login/login.html';
+        }
+        let CheckCred = () => {
+          if (!sessionStorage.getItem('user-creds'))
+            window.location.href = './login.html';
+          else {
+            MsgHead.innerText =
+              'User with email "${UserCreds.email}" is logged in';
+            GreetHead.innerText =
+              'Hello ${UserInfo.firstname + " " + UserInfo.lastname}!';
+          }
+        };
+
+        window.addEventListener('load', CheckCred);
+      }
+    </script>
+  </body>
+</html>

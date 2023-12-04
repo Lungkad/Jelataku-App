@@ -4,9 +4,9 @@ import React from 'react';
 import Portofolio from '../App';
 import {Text, View, ScrollView, StyleSheet} from 'react-native';
 import Fontawesome5 from 'react-native-vector-icons/FontAwesome5';
-import Getdata from '../Getdata';
-import Editdata from '../Editdata';
-import Tambahdata from '../Createdata';
+import Getdata from '../screen/Getdata';
+import Editdata from '../screen/Editdata';
+import Tambahdata from '../screen/Createdata';
 
 const Tab = createBottomTabNavigator();
 const webmap = require('../peta/map.html');
