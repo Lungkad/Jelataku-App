@@ -1,79 +1,25 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
-
-# Getting Started
-
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
-
-## Step 1: Start the Metro Server
-
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
-
-To start Metro, run the following command from the _root_ of your React Native project:
-
-```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
-```
-
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+# Jelataku (Jelajah Wisata Kulonprogo)
+Jelajah Wisata Kulonprogo merupakan sebuah aplikasi android dengan framework React-Native yang akan membawa Anda untuk menjelajahi keindahan dan pesona tempat wisata di Kulonprogo. Jelataku merupakan portal informasi yang lengkap dan interaktif, dirancang khusus untuk memudahkan Anda dalam merencanakan perjalanan dan menemukan destinasi wisata terbaik di daerah ini. Dengan Jelataku, Anda dapat menjelajahi berbagai tempat wisata yang memikat di Kulonprogo, termasuk pantai yang indah, wisata alam yang mempesona, situs budaya yang kaya sejarah, dan masih banyak lagi. Kami menyediakan peta interaktif yang memudahkan Anda menemukan lokasi tempat wisata, serta informasi lengkap mengenai setiap destinasi.
+# Komponen Produk
+Aplikasi ini dibuat dengan beberapa komponen seperti:
+1. React-Native
+2. Spreadsheet
+3. Apps Script
+4. Firebase
+6. FontAwesome6
+7. TailwindCSS
+# Sumber Data
+Data yang digunakan dalam pembuatan aplikasi ini adalah data titik wisata yang diambil dari google maps dan data mengenai HTM lokasi wisata yang sebagian diperoleh dari survei mandiri
+# Komponen Penting
+1. Login dan Register
+   ![Screenshot 2023-12-05 085630](https://github.com/Lungkad/Jelataku-App/assets/128579557/3895da9a-5345-429d-80e4-346688f9b017)![Screenshot 2023-12-05 085651](https://github.com/Lungkad/Jelataku-App/assets/128579557/a1e892cc-21d6-4a5d-9f73-bded0d55e386)
+2. Sidebar
+   ![Screenshot 2023-12-05 085728](https://github.com/Lungkad/Jelataku-App/assets/128579557/d9b3b6ec-22b4-4f52-8117-3080e3eac539)
+3. Homepage
+   ![Screenshot 2023-12-05 085716](https://github.com/Lungkad/Jelataku-App/assets/128579557/52c5e0ae-9f0c-4267-9e85-57beb9b6dc9f)
+3. Peta Wisata
+   ![Screenshot 2023-12-05 085749](https://github.com/Lungkad/Jelataku-App/assets/128579557/ebb44e3d-8efc-409c-8c26-01e09152201d)
+4. Form Input
+   ![Screenshot 2023-12-05 085809](https://github.com/Lungkad/Jelataku-App/assets/128579557/aa84cf85-c315-4296-be67-6376b308807c)
+5. List Wisata
+   ![Screenshot 2023-12-05 090037](https://github.com/Lungkad/Jelataku-App/assets/128579557/f9ad8c2f-d5f1-451c-b1a7-0c4583c0af52)
