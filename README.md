@@ -29,5 +29,3 @@ Data yang digunakan dalam pembuatan aplikasi ini adalah data titik wisata yang d
 6. List Wisata
 
    ![Screenshot 2023-12-05 090037](https://github.com/Lungkad/Jelataku-App/assets/128579557/fcd1db82-a2fd-4df9-b2ce-1487b6516220)
-
-   ![Screenshot 2023-12-05 090037](https://github.com/Lungkad/Jelataku-App/assets/128579557/f9ad8c2f-d5f1-451c-b1a7-0c4583c0af52)
