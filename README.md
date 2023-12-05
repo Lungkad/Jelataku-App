@@ -12,14 +12,22 @@ Aplikasi ini dibuat dengan beberapa komponen seperti:
 Data yang digunakan dalam pembuatan aplikasi ini adalah data titik wisata yang diambil dari google maps dan data mengenai HTM lokasi wisata yang sebagian diperoleh dari survei mandiri
 # Komponen Penting
 1. Login dan Register
+
    ![Screenshot 2023-12-05 085630](https://github.com/Lungkad/Jelataku-App/assets/128579557/3895da9a-5345-429d-80e4-346688f9b017)![Screenshot 2023-12-05 085651](https://github.com/Lungkad/Jelataku-App/assets/128579557/a1e892cc-21d6-4a5d-9f73-bded0d55e386)
 2. Sidebar
+
    ![Screenshot 2023-12-05 085728](https://github.com/Lungkad/Jelataku-App/assets/128579557/d9b3b6ec-22b4-4f52-8117-3080e3eac539)
 3. Homepage
+
    ![Screenshot 2023-12-05 085716](https://github.com/Lungkad/Jelataku-App/assets/128579557/52c5e0ae-9f0c-4267-9e85-57beb9b6dc9f)
-3. Peta Wisata
+4. Peta Wisata
+
    ![Screenshot 2023-12-05 085749](https://github.com/Lungkad/Jelataku-App/assets/128579557/ebb44e3d-8efc-409c-8c26-01e09152201d)
-4. Form Input
+5. Form Input
+
    ![Screenshot 2023-12-05 085809](https://github.com/Lungkad/Jelataku-App/assets/128579557/aa84cf85-c315-4296-be67-6376b308807c)
-5. List Wisata
+6. List Wisata
+
+   ![Screenshot 2023-12-05 090037](https://github.com/Lungkad/Jelataku-App/assets/128579557/fcd1db82-a2fd-4df9-b2ce-1487b6516220)
+
    ![Screenshot 2023-12-05 090037](https://github.com/Lungkad/Jelataku-App/assets/128579557/f9ad8c2f-d5f1-451c-b1a7-0c4583c0af52)
