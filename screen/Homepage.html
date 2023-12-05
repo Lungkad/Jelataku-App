@@ -11,6 +11,270 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
     <title>Homepage</title>
+    <style>
+    * {
+      box-sizing: border-box
+    }
+
+    .mySlides {
+      display: none
+    }
+
+    img {
+      vertical-align: middle;
+    }
+
+    .btwhite {
+      background: white;
+      border-radius: 10px;
+      margin-top: 10px;
+      padding: 15px 20px 15px 20px;
+      color: black;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .btwhite:hover {
+      background: black;
+      text-decoration: none;
+    }
+
+    .btblack {
+      background: black;
+      border-radius: 10px;
+      margin-top: 10px;
+      padding: 15px 20px 15px 20px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .btblack:hover {
+      background: orange;
+      text-decoration: none;
+    }
+
+    .carousel-container {
+      width: 50%;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .carousel-slide {
+      display: flex;
+      width: 100%;
+      height: 500px;
+    }
+
+    .btntengah {
+      width: 150px;
+    }
+
+    .content {
+      position: absolute;
+      /* Position the background text */
+      bottom: 0;
+      /* At the bottom. Use top:0 to append it to the top */
+      background: rgb(0, 0, 0);
+      /* Fallback color */
+      background: rgba(0, 0, 0, 0.5);
+      /* Black background with 0.5 opacity */
+      color: #f1f1f1;
+      /* Grey text */
+      width: 100%;
+      /* Full width */
+      padding: 20px;
+      /* Some padding */
+    }
+
+    /* animation */
+    .fade-in {
+      opacity: 0;
+      /* Set opacity awal menjadi 0 */
+      transition: opacity 1.0s ease-in;
+      /* Animasi transition */
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      /* Set opacity menjadi 1 saat class "show" ditambahkan */
+    }
+
+    /* card */
+    .cardx {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 350px;
+      height: 500px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      padding: 32px;
+      overflow: hidden;
+      border-radius: 10px;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+
+    .contentx {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      color: #383838;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+
+    .contentx .headingx {
+      font-weight: 700;
+      font-size: 32px;
+    }
+
+    .contentx .parax {
+      line-height: 1.5;
+    }
+
+    .contentx .btnx {
+      color: #383838;
+      text-decoration: none;
+      padding: 10px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(-45deg, #FFC0CB 0%, #da9f51 100%);
+      border-radius: 5px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .cardx::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(-45deg, #FFC0CB 0%, #da9f51 100%);
+      z-index: -1;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+
+    .cardx:hover::before {
+      height: 100%;
+    }
+
+    .cardx:hover {
+      box-shadow: none;
+    }
+
+    .cardx:hover .btnx {
+      color: #212121;
+      background: #e8e8e8;
+    }
+
+    .contentx .btnx:hover {
+      outline: 2px solid #e8e8e8;
+      background: transparent;
+      color: #e8e8e8;
+    }
+
+    .contentx .btnx:active {
+      box-shadow: none;
+    }
+
+    /* button */
+    .primary-button {
+      font-family: 'Ropa Sans', sans-serif;
+      /* font-family: 'Valorant', sans-serif; */
+      color: black;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 0.05rem;
+      border: 1px solid #0E1822;
+      padding: 0.8rem 2.1rem;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 531.28 200'%3E%3Cdefs%3E%3Cstyle%3E .shape %7B fill: %23FF4655 /* fill: %230E1822; */ %7D %3C/style%3E%3C/defs%3E%3Cg id='Layer_2' data-name='Layer 2'%3E%3Cg id='Layer_1-2' data-name='Layer 1'%3E%3Cpolygon class='shape' points='415.81 200 0 200 115.47 0 531.28 0 415.81 200' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+      background-color: #ffffff;
+      background-size: 200%;
+      background-position: 200%;
+      background-repeat: no-repeat;
+      transition: 0.3s ease-in-out;
+      transition-property: background-position, border, color;
+      position: relative;
+      z-index: 1;
+    }
+
+    .primary-button:hover {
+      border: 1px solid #da9f51;
+      color: white;
+      background-position: 40%;
+    }
+
+    .primary-button:before {
+      content: "";
+      position: absolute;
+      background-color: #0E1822;
+      width: 0.2rem;
+      height: 0.2rem;
+      top: -1px;
+      left: -1px;
+      transition: background-color 0.15s ease-in-out;
+    }
+
+    .primary-button:hover:before {
+      background-color: white;
+    }
+
+    .primary-button:hover:after {
+      background-color: white;
+    }
+
+    .primary-button:after {
+      content: "";
+      position: absolute;
+      background-color: #da9f51;
+      width: 0.3rem;
+      height: 0.3rem;
+      bottom: -1px;
+      right: -1px;
+      transition: background-color 0.15s ease-in-out;
+    }
+
+    .button-borders {
+      position: relative;
+      width: fit-content;
+      height: fit-content;
+    }
+
+    .button-borders:before {
+      content: "";
+      position: absolute;
+      width: calc(100% + 0.5em);
+      height: 50%;
+      left: -0.3em;
+      top: -0.3em;
+      border: 1px solid #eeeeee;
+      border-bottom: 0px;
+      /* opacity: 0.3; */
+    }
+
+    .button-borders:after {
+      content: "";
+      position: absolute;
+      width: calc(100% + 0.5em);
+      height: 50%;
+      left: -0.3em;
+      bottom: -0.3em;
+      border: 1px solid #eeeeee;
+      border-top: 0px;
+      /* opacity: 0.3; */
+      z-index: 0;
+    }
+
+    .shape {
+      fill: #eeeeee;
+    }
+    </style>
   </head>
 
   <body class="">
@@ -26,13 +290,13 @@
             <i class="fa-solid fa-xmark mr-3 text-gray-400"></i>
           </a>
           <a
-            href="#"
+            href="Homepage.html"
             class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
             <i class="fa-solid fa-home mr-3 text-gray-400"></i>
             Home
           </a>
           <a
-            href="#"
+            href="Mappage.html"
             class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
             <i class="fa-solid fa-map-location-dot mr-3 text-gray-400"></i>
             Map
@@ -44,7 +308,7 @@
             Input Data
           </a>
           <a
-            href="#"
+            href="Listpage.html"
             class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
             <i class="fa-solid fa-map-pin mr-3 text-gray-400"></i>
             List Data
@@ -62,22 +326,34 @@
       </div>
 
       <main class="flex flex-col mx-auto">
-        <div class="mb-4 flex-grow bg-gray-800 py-5">
+        <div class="flex-grow bg-gray-800 py-5">
           <a onclick="openTab()" class="text-2xl text-gray-100 mb-4 ml-4">
             ☰
           </a>
           <a class="text-xl text-gray-100 mb-4 ml-4">Homepage</a>
         </div>
 
-        <h1 class="text-3xl font-bold text-gray-800 mb-4 px-5 py-2">
-          Welcome to my homepage!
-        </h1>
-        <p class="text-lg text-gray-600 leading-relaxed px-5 py-2">
-          This is a homepage with a permanently open sidebar using Tailwind CSS.
-          You can customize it to fit your needs and add your own content.
-        </p>
-        <h2 id="msg"></h2>
-        <h2 id="greet"></h2>
+        <header class="py-5 bg-image-full d-flex justify-content-center align-items-center">
+          <div class="">
+            <img class="mr-auto ml-auto" src="../login/favicon.png" style="width: 125px; height: 125px;"/>
+            <h1 class="text-3xl text-center font-bold text-yellow-600" style="padding-top: 10px;">Jelajah Wisata Kulonprogo</h1>
+            <p class="lead text-center text-xl text-gray-900">Temukan Keindahan Wisata Kulonprogo</p></br>
+            <center>
+              <div class="button-borders">
+                <button class="primary-button" onclick="window.location.href = '#kp'"> Learn More
+                </button>
+              </div>
+            </center>
+          </div>
+        </header>
+        <div class="">
+          <p class="text-center text-2xl font-bold text-yellow-600 mb-5" style="padding-top: 50px;">Apa Itu Jelataku</p>
+          <p class="text-justify text-gray-900 px-5">Selamat datang di Jelataku - platform webgis yang akan membawa Anda untuk menjelajahi keindahan dan pesona tempat wisata di Kulonprogo. Jelataku merupakan portal informasi yang lengkap dan interaktif, dirancang khusus untuk memudahkan Anda dalam merencanakan perjalanan dan menemukan destinasi wisata terbaik di daerah ini. Dengan Jelataku, Anda dapat menjelajahi berbagai tempat wisata yang memikat di Kulonprogo, termasuk pantai yang indah, wisata alam yang mempesona, situs budaya yang kaya sejarah, dan masih banyak lagi. Kami menyediakan peta interaktif yang memudahkan Anda menemukan lokasi tempat wisata, serta informasi lengkap mengenai setiap destinasi.</p>
+        </div>
+        <div>
+          <p id="kp" class="text-center text-2xl font-bold text-yellow-600 mb-5" style="padding-top: 50px;">Tentang Kulonprogo</p>
+          <p class="text-justify text-gray-900 px-5">Terletak di Provinsi Daerah Istimewa Yogyakarta, Kulonprogo merupakan daerah yang kaya akan pesona alam, budaya, dan sejarah. Kulonprogo adalah kabupaten yang berada di bagian barat Yogyakarta, dengan ibu kota kabupaten berlokasi di Wates. Daerah ini memiliki luas wilayah yang cukup luas, mencakup beragam jenis destinasi wisata yang menarik. Dari pantai-pantai yang mempesona hingga pegunungan yang menakjubkan, Kulonprogo menawarkan pengalaman wisata yang beragam dan menarik. Kabupaten ini berbatasan dengan Kabupaten Sleman dan Kabupaten Bantul di timur, Samudra Hindia di selatan, Kabupaten Purworejo di barat, serta Kabupaten Magelang di utara, nama Kulon Progo berarti sebelah barat Sungai Progo (kata kulon dalam Bahasa Jawa artinya barat). Kali Progo membatasi kabupaten ini di sebelah timur. Kulonprogo tidak hanya menawarkan keindahan alam dan warisan budaya, tetapi juga keramahan penduduknya. Masyarakat Kulonprogo dikenal sangat ramah dan menjunjung tinggi nilai-nilai kearifan lokal. Anda akan merasakan keramahan mereka saat menjelajahi daerah ini. Jadi, jika Anda mencari destinasi wisata yang kaya akan keindahan alam, budaya yang kaya, dan pengalaman yang autentik, Kulonprogo adalah tempat yang tepat untuk dikunjungi. Jelajahi semua yang Kulonprogo tawarkan melalui Jelataku dan siapkan diri Anda untuk petualangan tak terlupakan di daerah ini. Selamat menjelajahi Kulonprogo!</p>
+        </div>
       </main>
     </div>
     <script>

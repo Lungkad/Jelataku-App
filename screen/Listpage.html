@@ -1,0 +1,145 @@
+p<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Web Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div
+      class="fixed z-10 flex flex-col h-full w-64 bg-gray-800 text-gray-300 shadow-lg"
+      style="display: none"
+      id="mySidebar">
+      <nav class="flex-col px-4 mt-5">
+        <a
+          onclick="closeTab()"
+          class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
+          <i class="fa-solid fa-xmark mr-3 text-gray-400"></i>
+        </a>
+        <a
+          href="Homepage.html"
+          class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
+          <i class="fa-solid fa-home mr-3 text-gray-400"></i>
+          Home
+        </a>
+        <a
+          href="Mappage.html"
+          class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
+          <i class="fa-solid fa-map-location-dot mr-3 text-gray-400"></i>
+          Map
+        </a>
+        <a
+          href="Inputpage.html"
+          class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
+          <i class="fa-solid fa-plus mr-3 text-gray-400"></i>
+          Input Data
+        </a>
+        <a
+          href="#"
+          class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
+          <i class="fa-solid fa-map-pin mr-3 text-gray-400"></i>
+          List Data
+        </a>
+        <div class="absolute bottom-0 mb-1 w-full">
+          <button
+            onclick="confirmSignOut()"
+            type="button"
+            class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
+            <i class="fa-solid fa-right-from-bracket mr-3 text-gray-400"></i>
+            Sign Out
+          </button>
+        </div>
+      </nav>
+    </div>
+    <main class="flex flex-col mx-auto">
+      <div class="mb-4 flex-grow bg-gray-800 py-3">
+        <a onclick="openTab()" class="text-2xl text-gray-100 mb-4 ml-4"> ☰ </a>
+        <a class="text-xl text-gray-100 mb-4 ml-2">Input Data</a>
+      </div>
+      <div class="pb-20 px-5">
+        <div class="container">
+          <div class="row row-cols-1 row-cols-md-3 g-4 mt-3" id="jsonContainer">
+            <!-- JSON data will be inserted here dynamically -->
+          </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script>
+          $(document).ready(function () {
+            const jsonUrl =
+              'https://script.google.com/macros/s/AKfycbwMWlFZZmMei0cJw5vBMT_hz1c1fZNzle23X9cNBXC569SfQXOlwJWbY8yBeAIXDIRfig/exec';
+            const jsonContainer = $('#jsonContainer');
+
+            // Fetch JSON data
+            $.getJSON(jsonUrl, function (data) {
+              // Loop through the data and generate HTML
+              $.each(data, function (index, d) {
+                const card = $(
+                  '<div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">' +
+                    '<div class="card card-header w-full">' +
+                    '<p class=""mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">' +
+                    d.wisata +
+                    '</p>' +
+                    '</div>' +
+                    '<div class="card-text card-body flex flex-column justify-between">' +
+                    '<p class="font-normal text-gray-700 dark:text-gray-40" style="margin-bottom: 10px;">' +
+                    d.alamat +
+                    '</p>' + // Add a margin to the bottom of the description
+                    '</div>' +
+                    
+                    '<div class="card-footer text-muted">' +
+                    '<div class="flex justify-between">' +
+                    '<span class="flex space-x-1 items-center">' +
+                    '<i class="bi bi-geo-alt"></i>' +
+                    '<h7 class="card-text">Latitude : ' +
+                    d.latitude +
+                    '</h7>' +
+                    '<i class="bi bi-geo-alt"></i>' +
+                    '<h7 class="card-text">Longitude : ' +
+                    d.longitude +
+                    '</h7>' +
+                    '</span>' +
+                    '<div class="flex justify-end mt-1 space-x-2">' + // Reduce the top margin here
+                    '<a type="button" class="btn bg-purple-500 text-white hover:bg-purple-600 " href="./Mappage.html?lat=' +
+                    d.latitude +
+                    '&lon=' +
+                    d.longitude +
+                    '">View Maps</a>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>',
+                );
+                jsonContainer.append(card);
+              });
+            });
+          });
+        </script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+          crossorigin="anonymous"></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+          integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+          crossorigin="anonymous"></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+          integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+          crossorigin="anonymous"></script>
+      </div>
+    </main>
+  </body>
+</html>

@@ -42,25 +42,25 @@
             <i class="fa-solid fa-xmark mr-3 text-gray-400"></i>
           </a>
           <a
-            href="#"
+            href="Homepage.html"
             class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
             <i class="fa-solid fa-home mr-3 text-gray-400"></i>
             Home
           </a>
           <a
-            href="#"
+            href="Mappage.html"
             class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
             <i class="fa-solid fa-map-location-dot mr-3 text-gray-400"></i>
             Map
           </a>
           <a
-            href="#"
+            href="Inputpage.html"
             class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
             <i class="fa-solid fa-plus mr-3 text-gray-400"></i>
             Input Data
           </a>
           <a
-            href="#"
+            href="Listpage.html"
             class="flex items-center px-4 py-2 text-base text-gray-100 rounded-lg hover:bg-gray-700 hover:text-gray-300">
             <i class="fa-solid fa-map-pin mr-3 text-gray-400"></i>
             List Data
@@ -81,7 +81,7 @@
           <a onclick="openTab()" class="text-2xl text-gray-100 mb-4 ml-4">
             ☰
           </a>
-          <a class="text-xl text-gray-100 mb-4 ml-2">Map</a>
+          <a class="text-xl text-gray-100 mb-4 ml-2">Input Data</a>
         </div>
         <div class="container-fluid mt-2 mb-2">
           <section class="content">
@@ -226,6 +226,7 @@
                         <div class="col text-right">
                           <button
                             type="submit"
+                            id="btnsimpan"
                             class="btn btn-primary btn-simpan">
                             <i class="fas fa-save"></i> Simpan
                           </button>
@@ -256,6 +257,40 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-hash/0.2.1/leaflet-hash.min.js"></script>
     <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js"></script>
+    <script type="module">
+      import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js';
+      import {
+        getDatabase,
+        set,
+        ref,
+        child,
+        update,
+        remove
+      } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js';
+
+      const firebaseConfig = {
+        apiKey: 'AIzaSyCBmhoI90VWanb53Njc61xNwOpo0aeFvAE',
+        authDomain: 'jelataku-d166b.firebaseapp.com',
+        databaseURL:
+          'https://jelataku-d166b-default-rtdb.asia-southeast1.firebasedatabase.app',
+        projectId: 'jelataku-d166b',
+        storageBucket: 'jelataku-d166b.appspot.com',
+        messagingSenderId: '359145156268',
+        appId: '1:359145156268:web:53bf0c2e435fcd01d27909',
+        measurementId: 'G-65CNQCH6HV',
+      };
+      const db = getDatabase();
+
+      var wisata = document.getElementById("wisata");
+      var deskripsi = document.getElementById("deskripsi");
+      var alamat = document.getElementById("alamat");
+      var htm = document.getElementById("htm");
+      var tipe = document.getElementById("tipe");
+      var latitude = document.getElementById("latitude");
+      var longitude = document.getElementById("longitude");
+      
+      var btnsimpan = document.getElementById("btnsimpan");
+    </script>
     <script>
       /* Initial Map */
       let tooltip =
